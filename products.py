@@ -1,13 +1,20 @@
-# 讀取檔案
+import os #operating system
+
+
 products = []
-with open('products.csv', 'r', encoding="utf-8") as f:
+if os.path.isfile('products.csv'):  #相對路徑
+	print("yeah! 找到檔案了!")
+	# 讀取檔案
+	with open('products.csv', 'r', encoding="utf-8") as f:  
 	for line in f:
 		if "商品,價格" in line:
 			continue #繼續 跳到下一迴的意思
 		name, price = line.strip().split(',') #先把換行符號去掉，再用逗點當切割的標準
 		
-		products.append([name, price])                             #把切好的東西放到name,price裡 (切完是清單)
-print(products)
+		products.append([name, price])              #把切好的東西放到name,price裡 (切完是清單)
+	print(products)
+else:
+	print("找不到檔案.......")
 
 
 #讓使用者輸入
