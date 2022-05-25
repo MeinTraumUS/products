@@ -13,3 +13,7 @@ while True:
 print(products)
 
 products[0][0]	# 列出清單中的第一個商品名稱
+
+for p in products:
+	print(p[0],'的價格是', p[1])
+	
